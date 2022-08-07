@@ -56,10 +56,10 @@ function preprocess(text, settings) {
         text = text.toLowerCase();
     }
     if (!settings['punctuation']) {
-        text = leaveCharacters(text, /[^a-zA-Zа-яА-Я]/g);
+        text = leaveCharacters(text, /[^a-zA-Zа-яА-Яё]/g);
     }
     else {
-        text = leaveCharacters(text, /[^a-zA-Zа-яА-Я.,!?]/g);
+        text = leaveCharacters(text, /[^a-zA-Zа-яА-Яё.,!?]/g);
         text = separatePunctuation(text);
     }
     text = removeExtraSpaces(text);
@@ -89,15 +89,19 @@ function getNextWord(word, transitionMatrix) {
 
 function generate(wordSet, transitionMatrix, settings) {
     const words = Array.from(wordSet);
-    let startWord = words[0],
-        endWord = words[words.length - 1],
-        word = startWord;
+
+    if (words[0] === undefined) {
+        return "Try again";
+    }
+
+    let word = words[0],
+        endWord = words[words.length - 1];
     let text = word;
     while (word !== endWord) {
         word = getNextWord(word, transitionMatrix);
         text += " " + word;
     }
-    text += " " + endWord;
+    // text += " " + endWord;
 
     if (settings['punctuation']) {
         text = text.replace(/ ([.,!?])/g, "$1");

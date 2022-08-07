@@ -18,6 +18,25 @@ function App() {
         'capital-letters': false
     });
 
+    function preprocessText() {
+        const [wordsSet, transitionMatrix] = preprocess(inputText, settings);
+        setWordSet(wordsSet);
+        setTransitionMatrix(transitionMatrix);
+
+        console.log(
+            "wordsSet:", wordsSet,
+            "transitionMatrix:", transitionMatrix
+        )
+    }
+
+    function generateText() {
+        const text = generate(wordSet, transitionMatrix, settings);
+
+        setGeneratedText(text);
+
+        console.log([text]);
+    }
+
     return (
         <div className="App" >
             <InputArea
@@ -29,26 +48,10 @@ function App() {
                 setSettings={setSettings}
             />
             <TextButton
-                text="Preprocess"
-                func={() => {
-                    const [wordsSet, transitionMatrix] = preprocess(inputText, settings);
-                    setWordSet(wordsSet);
-                    setTransitionMatrix(transitionMatrix);
-
-                    console.log(
-                        "wordsSet:", wordsSet,
-                        "transitionMatrix:", transitionMatrix
-                    )
-                }}
-            />
-            <TextButton
                 text="Generate text"
                 func={() => {
-                    const text = generate(wordSet, transitionMatrix, settings);
-
-                    console.log(text)
-
-                    setGeneratedText(text);
+                    preprocessText();
+                    generateText();
                 }}
             />
             <GeneratedText text={generatedText} />
