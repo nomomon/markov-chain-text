@@ -17,7 +17,7 @@ function InputArea({ inputText, setInputText }) {
         <div>
             <div
                 className="input-area empty"
-                contentEditable
+                contentEditable="plaintext-only"
                 onInput={handleChange}
             >
             </div>
