@@ -8,6 +8,12 @@ body{
     margin-bottom: 20vh;
 }
 
+.App{
+    width:800px;
+    max-width: calc(100vw - 2em);
+    margin: 0 auto;
+}
+
 .input-area{
     border: lightgray 1px solid;
     border-radius: 1em;

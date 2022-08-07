@@ -39,6 +39,11 @@ function App() {
 
     return (
         <div className="App" >
+            <h1>Markov Chain Text Generator</h1>
+            <p>
+                This is a simple text generator based on Markov chains. Type in some text and click "Generate" to see what it comes up with. Best results occur when the input has repeating words.
+            </p>
+
             <InputArea
                 inputText={inputText}
                 setInputText={setInputText}

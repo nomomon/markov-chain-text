@@ -59,7 +59,7 @@ function preprocess(text, settings) {
         text = leaveCharacters(text, /[^a-zA-Zа-яА-Яё]/g);
     }
     else {
-        text = leaveCharacters(text, /[^a-zA-Zа-яА-Яё.,!?]/g);
+        text = leaveCharacters(text, /[^a-zA-Zа-яА-Яё.,!?–-—]/g);
         text = separatePunctuation(text);
     }
     text = removeExtraSpaces(text);
