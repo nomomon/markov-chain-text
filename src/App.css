@@ -41,3 +41,7 @@ body{
 .textButton:active{
     transform: translateY(2px);
 }
+
+.Settings{
+    margin-top: 1em;
+}

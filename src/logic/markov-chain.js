@@ -1,10 +1,10 @@
 // function to remove all non-text symbols from a string
-function removeSymbols(text) {
-    return text.replace(/[^a-zA-Zа-яА-Я]/g, " ");
+function leaveCharacters(text, regex) {
+    return text.replace(regex, " ");
 }
 
 //function to add spaces before and after punctuation marks
-function addSpaces(text) {
+function separatePunctuation(text) {
     return text.replace(/([.,!?])/g, " $1 ");
 }
 
@@ -51,10 +51,17 @@ function makeTransitionMatrix(wordsSet, adjecentWords) {
 }
 
 // function to make a transition matrix from a string
-function preprocess(text) {
-    text = text.toLowerCase();
-    text = addSpaces(text);
-    text = removeSymbols(text);
+function preprocess(text, settings) {
+    if (!settings['capital-letters']) {
+        text = text.toLowerCase();
+    }
+    if (!settings['punctuation']) {
+        text = leaveCharacters(text, /[^a-zA-Zа-яА-Я]/g);
+    }
+    else {
+        text = leaveCharacters(text, /[^a-zA-Zа-яА-Я.,!?]/g);
+        text = separatePunctuation(text);
+    }
     text = removeExtraSpaces(text);
     const wordsSet = getWordsSet(text);
     const adjecentWords = getAdjecentWords(text);
@@ -80,7 +87,7 @@ function getNextWord(word, transitionMatrix) {
     }
 }
 
-function generate(wordSet, transitionMatrix) {
+function generate(wordSet, transitionMatrix, settings) {
     const words = Array.from(wordSet);
     let startWord = words[0],
         endWord = words[words.length - 1],
@@ -91,6 +98,11 @@ function generate(wordSet, transitionMatrix) {
         text += " " + word;
     }
     text += " " + endWord;
+
+    if (settings['punctuation']) {
+        text = text.replace(/ ([.,!?])/g, "$1");
+    }
+
     return text;
 }
 
