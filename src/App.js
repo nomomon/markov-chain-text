@@ -7,6 +7,9 @@ import GeneratedText from "./components/GeneratedText";
 
 import { preprocess, generate } from "./logic/markov-chain";
 
+import ReactGA from 'react-ga';
+const TRACKING_ID = "G-9NVE1LVMDY";
+ReactGA.initialize(TRACKING_ID);
 
 function App() {
     const [inputText, setInputText] = useState("");

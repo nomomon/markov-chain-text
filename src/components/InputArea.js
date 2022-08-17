@@ -1,5 +1,11 @@
+import useAnalyticsEventTracker from "./useAnalyticsEventTracker";
+
 function InputArea({ inputText, setInputText }) {
+    const gaEventTracker = useAnalyticsEventTracker('markov-chain-text-generator');
+
     function handleChange(event) {
+        gaEventTracker('type', 'input-area');
+
         const newValue = event.target.innerText;
         setInputText(newValue);
 

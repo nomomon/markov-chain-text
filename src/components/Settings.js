@@ -1,7 +1,11 @@
+import useAnalyticsEventTracker from "./useAnalyticsEventTracker";
+
 function Checkbox({ settingName, settings, setSettings }) {
+    const gaEventTracker = useAnalyticsEventTracker('markov-chain-text-generator');
     let id = settingName.toLowerCase().replace(" ", "-");
 
     function handleEvent(event) {
+        gaEventTracker('click', id);
         settings[id] = event.target.checked;
         setSettings(settings);
     }
