@@ -1,17 +1,28 @@
-import React, { useState } from 'react';
+// react
+import React, { useState, useEffect } from 'react';
 import './App.css';
+
+// load in components
 import InputArea from "./components/InputArea";
 import Settings from "./components/Settings";
 import TextButton from "./components/TextButton";
 import GeneratedText from "./components/GeneratedText";
 
+// logic
 import { preprocess, generate } from "./logic/markov-chain";
 
+// google analytics
 import ReactGA from 'react-ga';
 const TRACKING_ID = "G-9NVE1LVMDY";
 ReactGA.initialize(TRACKING_ID);
 
+
+
 function App() {
+    useEffect(() => {
+        ReactGA.pageview(window.location.pathname + window.location.search);
+    }, []);
+
     const [inputText, setInputText] = useState("");
     const [generatedText, setGeneratedText] = useState("");
     const [wordSet, setWordSet] = useState(new Set());
