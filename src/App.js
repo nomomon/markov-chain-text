@@ -13,7 +13,7 @@ import { preprocess, generate } from "./logic/markov-chain";
 
 // google analytics
 import ReactGA from 'react-ga';
-const TRACKING_ID = "G-9NVE1LVMDY";
+const TRACKING_ID = "G-ZEC8LQQV2C";
 ReactGA.initialize(TRACKING_ID);
 
 
