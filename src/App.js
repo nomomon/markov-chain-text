@@ -1,5 +1,5 @@
 // react
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 // load in components
@@ -16,13 +16,10 @@ import ReactGA from 'react-ga4';
 const TRACKING_ID = "G-9NVE1LVMDY";
 ReactGA.initialize(TRACKING_ID);
 
+ReactGA.send("pageview");
 
 
 function App() {
-    useEffect(() => {
-        ReactGA.pageview(window.location.pathname + window.location.search);
-    }, []);
-
     const [inputText, setInputText] = useState("");
     const [generatedText, setGeneratedText] = useState("");
     const [wordSet, setWordSet] = useState(new Set());
