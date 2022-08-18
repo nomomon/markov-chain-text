@@ -12,8 +12,8 @@ import GeneratedText from "./components/GeneratedText";
 import { preprocess, generate } from "./logic/markov-chain";
 
 // google analytics
-import ReactGA from 'react-ga';
-const TRACKING_ID = "UA-237936405-1";
+import ReactGA from 'react-ga4';
+const TRACKING_ID = "G-9NVE1LVMDY";
 ReactGA.initialize(TRACKING_ID);
 
 
