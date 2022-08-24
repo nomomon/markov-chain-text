@@ -1,5 +1,7 @@
 # Markov Chain Text Generator
 
+![cover](./assets/cover.jpeg)
+
 Text generator that builds Markov chains from your input and spits out new sentences.
 
 ## What's this about
