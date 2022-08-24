@@ -8,7 +8,7 @@ Each word is treated as a state. The next word is picked randomly from words tha
 
 It's no GPT, but the results are hilariously weird. I got the idea after reading a [series on Markov chains](https://thecode.media/markov-chain/) on the Y.Practicum blog — fun articles, easy to follow, made me want to try it myself.
 
-![screenshot](screenshot.png)
+![screenshot](./assets/screenshot.png)
 
 ## How to launch
 
