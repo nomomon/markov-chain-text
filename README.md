@@ -1,15 +1,24 @@
-# Markov Chain Text Generator in React.js
+# Markov Chain Text Generator
 
-_Node.js, React_
+Text generator that builds Markov chains from your input and spits out new sentences.
 
-## Description
+## What's this about
 
-This is a simple text generator that uses [Markov chains](https://en.wikipedia.org/wiki/Markov_chain) to generate text based on a given input. It is written in [React.js](https://reactjs.org/) and uses a self-written Markov chain implementation.
+Each word is treated as a state. The next word is picked randomly from words that followed the current one in the source text — probability based on frequency. It keeps going until it hits an end token.
 
-To generate the text, the user can either enter a text manually or paste text. The text is then parsed and the Markov chain is generated. The user can then generate text based on the Markov chain.
+It's no GPT, but the results are hilariously weird. I got the idea after reading a [series on Markov chains](https://thecode.media/markov-chain/) on the Y.Practicum blog — fun articles, easy to follow, made me want to try it myself.
+
+![screenshot](screenshot.png)
+
+## How to launch
+
+```bash
+npm install
+npm start
+```
+
+Opens on `localhost:3000`. Production build goes to `./docs`.
 
 ## Demo
 
-A demo of the application can be found [here](https://nomomon.github.io/markov-chain-text/).
-
-![Screenshot of the application](screenshot.png)
+[nomomon.github.io/markov-chain-text](https://nomomon.github.io/markov-chain-text/)
